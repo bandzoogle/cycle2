@@ -85,7 +85,10 @@ $.extend( c2.API, {
         // #75; remove inline styles
         if ( ! opts.retainStylesOnDestroy ) {
             opts.container.removeAttr( 'style' );
-            opts.slides.removeAttr( 'style' );
+            opts.slides.each(function() {
+                var slide = $(this);
+                slide.attr('style', slide.data('initialStyleAttr'));
+            });
             opts.slides.removeClass( opts.slideActiveClass );
         }
         opts.slides.each(function() {

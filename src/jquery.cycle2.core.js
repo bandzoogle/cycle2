@@ -213,6 +213,8 @@ $.fn.cycle.API = {
                     opts.container.append( slide );
             }
 
+            slide.data('initialStyleAttr', slide.attr('style'));
+
             opts.slideCount++;
             slideOpts = opts.API.buildSlideOpts( slide );
 
